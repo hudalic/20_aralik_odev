@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>ÖDEV - 2</h2>
+      <span>Sayı gir: </span><input type="text" id="text1" />
+      <button type="button" id="btn1">Çarp</button> <br /><br />
+      <span id="result1"></span>
+    </div>
+
+    <div>
+      <h2>ÖDEV - 3</h2>
+      <div>
+        Sayı 1: <input type="number" id="number1" /><br />
+        Sayı 2: <input type="number" id="number2" />
+      </div>
+      <div>
+        <button type="button" onclick="operation('carp')">Çarp</button>
+        <button type="button" onclick="operation('bol')">Böl</button><br />
+        <button type="button" onclick="operation('topla')">Topla</button>
+        <button type="button" onclick="operation('cikar')">Çıkar</button>
+      </div>
+      <span id="result2"></span>
+    </div>
+
+    <script>
+      document.getElementById("btn1").addEventListener("click", () => {
+        var text1 = document.getElementById("text1").value;
+
+        if (isNaN(text1)) {
+          alert("sayı girin!");
+        } else {
+          document.getElementById("result1").innerText =
+            "Sonuc: " + parseInt(text1) * 1.8;
+        }
+      });
+
+      const operation = (event) => {
+        
+        var number1 = parseInt(document.getElementById("number1").value);
+        var number2 = parseInt(document.getElementById("number2").value);
+        console.log(event)
+        let result2 = "";
+        switch (event) {
+          case "carp":
+            result2 = number1 * number2;
+            break;
+          case "bol":
+            result2 = (number1 / number2).toFixed(5);
+            break;
+          case "topla":
+            result2 = number1 + number2;
+            break;
+          case "cikar":
+            result2 = number1 - number2;
+            break;
+        }
+
+        document.getElementById("result2").innerText = "Sonuc: "+result2;
+      };
+    </script>
+  </body>
+</html>
